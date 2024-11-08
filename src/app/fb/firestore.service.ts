@@ -11,7 +11,7 @@ import {
   query,
   getFirestore
 } from '@angular/fire/firestore';
-import { Classes } from '../models/classes.models';
+
 
 @Injectable({
   providedIn: 'root',
@@ -35,23 +35,7 @@ export class FirestoreService {
 
 
 
-  async getAllClasses(): Promise<Classes[]> {
-    const classesCollectionRef = collection(this.firestore, 'Classes'); // Referencia a la colección
-    const classesSnapshot = await getDocs(classesCollectionRef); // Obtener snapshot de la colección
 
-    // Mapear el snapshot a un arreglo de objetos `Classes`
-    return classesSnapshot.docs.map(doc => {
-      const data = doc.data() as Classes;
-      return {
-        id: doc.id, // Asignar el ID manualmente
-        name: data.name,
-        teacher: data.teacher,
-        hour: data.hour,
-        classroom: data.classroom,
-        section: data.section
-      } as Classes;
-    });
-  }
 
 
 
