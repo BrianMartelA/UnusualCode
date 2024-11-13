@@ -32,9 +32,9 @@ export class LoginPage {
       const userData = await this.firestoreService.getUser(uid);
       const typeUser = userData ? userData['typeUser'] : null;
       if (typeUser === '2') {
-        this.router.navigate(['/profile']);
+        this.router.navigate(['/client']);
       } else if (typeUser === '3') {
-        this.router.navigate(['/profile']);
+        this.router.navigate(['/progammer']);
       } else {
         console.error('Tipo de usuario desconocido:', typeUser);
       }

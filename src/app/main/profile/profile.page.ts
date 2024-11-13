@@ -8,7 +8,7 @@ import { AuthService } from 'src/app/fb/auth.service';
   styleUrls: ['./profile.page.scss'],
 })
 export class ProfilePage implements OnInit {
-  user: any = null;
+  user: any = {};
   constructor(private authService: AuthService,private router: Router) { }
 
   ngOnInit() {
@@ -19,8 +19,10 @@ export class ProfilePage implements OnInit {
     });
   }
 
-  logout() {
+  async logout() {
+    console.log('Cerrando sesión...');
     this.authService.logout();  // Cerrar sesión
     this.router.navigate(['/home']);
+    console.log('Sesion cerrada..')
   }
 }

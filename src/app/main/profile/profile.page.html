@@ -1,21 +1,17 @@
+
 <ion-content [fullscreen]="true">
-
-  <ion-card>
-
-
+  <ion-card *ngIf="user">
     <ion-card-header>
       <p>Nombre:</p>
-      {{user['fullname']}}
+      {{ user['fullname'] }}
     </ion-card-header>
 
     <ion-card-content>
-      <p>Correo</p>      {{user['email']}}
+      <p>Correo:</p>
+      {{ user['email'] }}
       <p>Estado:</p>
-      </ion-card-content>
-
+    </ion-card-content>
   </ion-card>
 
-  @if(user){
-    <ion-button (click)="logout()">cerrar sesion</ion-button>
-  }
+  <ion-button *ngIf="user" (click)="logout()">Cerrar sesión</ion-button>
 </ion-content>
