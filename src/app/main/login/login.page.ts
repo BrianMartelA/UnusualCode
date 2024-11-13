@@ -22,7 +22,7 @@ export class LoginPage {
   }
 
   ngOnInit(): void {
-    console.log('');
+    console.log('La pagina de inicio de sesion se ha cargado correctamente');
   }
 
   async loginUser() {
@@ -32,9 +32,9 @@ export class LoginPage {
       const userData = await this.firestoreService.getUser(uid);
       const typeUser = userData ? userData['typeUser'] : null;
       if (typeUser === '2') {
-        this.router.navigate(['/home']);
+        this.router.navigate(['/profile']);
       } else if (typeUser === '3') {
-        this.router.navigate(['/home']);
+        this.router.navigate(['/profile']);
       } else {
         console.error('Tipo de usuario desconocido:', typeUser);
       }

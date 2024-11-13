@@ -1,0 +1,21 @@
+<ion-content [fullscreen]="true">
+
+  <ion-card>
+
+
+    <ion-card-header>
+      <p>Nombre:</p>
+      {{user['fullname']}}
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>Correo</p>      {{user['email']}}
+      <p>Estado:</p>
+      </ion-card-content>
+
+  </ion-card>
+
+  @if(user){
+    <ion-button (click)="logout()">cerrar sesion</ion-button>
+  }
+</ion-content>
