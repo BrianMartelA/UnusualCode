@@ -12,6 +12,9 @@
         <ion-input type="password" [(ngModel)]="password" name="password" required></ion-input>
       </ion-item>
       <ion-button expand="full" class="login-button" type="submit">Iniciar Sesión</ion-button>
+      @if (isLoading) {
+        <ion-spinner name="bubbles"></ion-spinner>
+      }
     </form>
     <p class="register-link">¿No tienes cuenta? <a routerLink="/register" class="register-text">Regístrate</a></p>
   </div>

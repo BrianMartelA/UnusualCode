@@ -69,6 +69,5 @@ export class RegisterPage implements OnInit {
       console.error('Error durante el registro:', error);
       this.error = this.authService.GenerarError(error);
     }}
-
   }
 }

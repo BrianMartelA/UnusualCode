@@ -1,56 +1,40 @@
-<ion-content class="ion-padding" fullscreen>
-  <form [formGroup]="registerForm" (ngSubmit)="registerUser()">
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>REGISTRARSE</ion-card-title>
-        <ion-card-subtitle>Crea una nueva cuenta</ion-card-subtitle>
-      </ion-card-header>
-      <ion-card-content>
-        <ion-item>
-          <ion-input formControlName="fullname" [(ngModel)]="userData.fullname" name="name" id= "fullname"placeholder="Nombre Completo"></ion-input>
-        </ion-item>
-        <div *ngIf="registerForm.get('fullname')?.invalid && registerForm.get('fullname')?.touched" > Ingrese un nombre</div>
-
-        <ion-item>
-          <ion-input  formControlName="email" [(ngModel)]="userData.email" type="email" name="email" id="email" placeholder="Correo Electrónico"></ion-input>
-
-        </ion-item>
-        <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched" > Ingrese un correo valido de la institucion</div>
-
-        <ion-item>
-          <ion-input  formControlName="password" [(ngModel)]="password" name="password" type="password" id="password" placeholder="Contraseña"></ion-input>
-
-
-        </ion-item>
-        <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched" > Ingrese una contrasena </div>
-
-
-        <ion-item>
-          <ion-input  formControlName="confPassword" [(ngModel)]="confPassword" name="confPassword" type="password" id="confPassword" placeholder="Contraseña"></ion-input>
-
-
-        </ion-item>
-        <div *ngIf="registerForm.get('confPassword')?.invalid && registerForm.get('confPassword')?.touched" > ingrese una contrasena </div>
-        <div *ngIf="registerForm.errors?.['passwordMismatch']"> Las contraseñas no coinciden.</div>
-
-          <ion-item>
-          <ion-label>Tipo de Usuario</ion-label>
-          <ion-select [(ngModel)]="userData.typeUser" name="typeUser" id="typeUser" placeholder="Selecciona el tipo de usuario">
-            <ion-select-option value="2">Cliente</ion-select-option>
-            <ion-select-option value="3">Programador</ion-select-option>
-          </ion-select>
-
-        </ion-item>
-        <div *ngIf="registerForm.get('typeUser')?.invalid && registerForm.get('typeUser')?.touched" > Ingrese un correo valido de la institucion</div>
-
-        <ion-button expand="block" (click)="registerUser()">Registrarse</ion-button>
-        <p><a [routerLink]="['/']" style="color: white;">Volver</a></p>
-        @if(error){
-          <div style="color: red;">
-            <p>{{error}}</p>
-          </div>
-        }
-      </ion-card-content>
-    </ion-card>
-  </form>
+<ion-content [fullscreen]="true" class="register-content">
+  <div class="register-container">
+    <div class="logo-title-container">
+      <img src="assets/icon/logo.png" alt="Logo del proyecto" class="logo-image" />
+      <h1 class="register-title">UnusualCode</h1>
+    </div>
+    <form [formGroup]="registerForm" (ngSubmit)="registerUser()" class="register-form">
+      <ion-item>
+        <ion-label position="floating">Nombre Completo</ion-label>
+        <ion-input formControlName="fullname" [(ngModel)]="userData.fullname" name="fullname" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Correo Electrónico</ion-label>
+        <ion-input formControlName="email" [(ngModel)]="userData.email" type="email" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input formControlName="password" [(ngModel)]="password" type="password" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Confirmar Contraseña</ion-label>
+        <ion-input formControlName="confPassword" [(ngModel)]="confPassword" type="password" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Tipo de Usuario</ion-label>
+        <ion-select [(ngModel)]="userData.typeUser" name="typeUser" placeholder="Selecciona el tipo de usuario" required>
+          <ion-select-option value="2">Usuario</ion-select-option>
+          <ion-select-option value="3">Programador</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-button expand="block" type="submit" class="register-button">Registrarse</ion-button>
+      <p><a [routerLink]="['/login']" class="register-link">Volver</a></p>
+      @if(error){
+        <div style="color: red;">
+          <p>{{error}}</p>
+        </div>
+      }
+    </form>
+  </div>
 </ion-content>

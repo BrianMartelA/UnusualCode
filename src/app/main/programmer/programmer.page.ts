@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/fb/auth.service';
 
 @Component({
   selector: 'app-programmer',
@@ -6,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./programmer.page.scss'],
 })
 export class ProgrammerPage implements OnInit {
-
-  constructor() { }
+  user: any = null;
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
+    this.authService.authState$.subscribe((userData) => {
+      this.user = userData;
+    });
   }
-
 }

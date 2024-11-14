@@ -1,0 +1,38 @@
+.welcome-content {
+  background-color: #000;
+  color: #ffffff;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.welcome-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80%;
+  padding: 20px;
+  text-align: center;
+}
+
+.welcome-title {
+  font-size: 2.5rem;
+  color: #6C24FF;
+  margin-bottom: 20px;
+}
+
+.welcome-text {
+  color: #b3b3b3;
+  font-size: 1.2rem;
+}
+
+.bottom-nav {
+  background-color: #333;
+  color: #ffffff;
+  --ion-color-primary: #6C24FF;
+}
+
+ion-icon {
+  font-size: 1.5rem;
+  color: #ffffff;
+}

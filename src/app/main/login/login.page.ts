@@ -12,6 +12,7 @@ export class LoginPage {
   email: string = '';
   password: string = '';
   error: string = '';
+  isLoading: boolean = false;
 
   constructor(
     private authService: AuthService,
@@ -27,6 +28,7 @@ export class LoginPage {
 
   async loginUser() {
     try {
+      this.isLoading= true;
       const userCredential = await this.authService.login(this.email, this.password);
       const uid = userCredential.user?.uid;
       const userData = await this.firestoreService.getUser(uid);
@@ -34,10 +36,11 @@ export class LoginPage {
       if (typeUser === '2') {
         this.router.navigate(['/client']);
       } else if (typeUser === '3') {
-        this.router.navigate(['/progammer']);
+        this.router.navigate(['/programmer']);
       } else {
         console.error('Tipo de usuario desconocido:', typeUser);
       }
+      this.isLoading= false;
     } catch (error) {
       console.error('Error al iniciar sesión:', error);
       this.error = this.authService.GenerarError(error);
