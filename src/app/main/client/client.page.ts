@@ -15,6 +15,16 @@ export class ClientPage implements OnInit {
     this.authService.authState$.subscribe((userData) => {
       this.user = userData;
     });
-  }
 
+    this.authService.authState$.subscribe((userData) => {
+      this.user = userData;
+      console.log('Datos completos del usuario:', this.user);
+    });
+  }
+  async logout() {
+    console.log('Cerrando sesión...');
+    this.authService.logout();  // Cerrar sesión
+    this.router.navigate(['/home']);
+    console.log('Sesion cerrada..')
+  }
 }

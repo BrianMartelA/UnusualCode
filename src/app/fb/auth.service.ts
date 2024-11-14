@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Auth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, signOut, User } from '@angular/fire/auth';
 import { FirestoreService } from './firestore.service';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, map } from 'rxjs';
 import { Users } from "../models/user.models";
 
 @Injectable({
@@ -78,4 +78,9 @@ export class AuthService {
   setUsername(username: string) {
     this.usernameSubject.next(username);
   }
+
+  isLoggedIn() {
+    return this.authStateSubject.asObservable().pipe(
+      map(user => !!user)  // Retorna true si user existe, false si es null
+    );}
 }

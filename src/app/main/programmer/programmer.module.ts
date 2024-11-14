@@ -7,13 +7,14 @@ import { IonicModule } from '@ionic/angular';
 import { ProgrammerPageRoutingModule } from './programmer-routing.module';
 
 import { ProgrammerPage } from './programmer.page';
+import { RouterLink } from '@angular/router';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ProgrammerPageRoutingModule
+    ProgrammerPageRoutingModule,RouterLink
   ],
   declarations: [ProgrammerPage]
 })

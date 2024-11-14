@@ -9,9 +9,15 @@
     <ion-card-content>
       <p>Correo:</p>
       {{ user['email'] }}
-      <p>Estado:</p>
+      <p>Estado:{{ user['typeUser'] }}</p>
     </ion-card-content>
   </ion-card>
+  <p *ngIf="user.typeUser ==='2'"> Tipo usuario: cliente</p>
+  <p *ngIf="user.typeUser ==='3'"> Tipo usuario: programador</p>
+
+
+  <a [routerLink]="['/client']" >volver</a>
+
 
   <ion-button *ngIf="user" (click)="logout()">Cerrar sesión</ion-button>
 </ion-content>

@@ -7,13 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { ClientPageRoutingModule } from './client-routing.module';
 
 import { ClientPage } from './client.page';
+import { RouterLink } from '@angular/router';
+
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ClientPageRoutingModule
+    ClientPageRoutingModule,
+    RouterLink
   ],
   declarations: [ClientPage]
 })

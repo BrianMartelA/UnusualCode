@@ -16,4 +16,11 @@ export class ProgrammerPage implements OnInit {
       this.user = userData;
     });
   }
+
+  async logout() {
+    console.log('Cerrando sesión...');
+    this.authService.logout();  // Cerrar sesión
+    this.router.navigate(['/home']);
+    console.log('Sesion cerrada..')
+  }
 }
