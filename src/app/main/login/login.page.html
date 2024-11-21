@@ -15,6 +15,11 @@
       @if (isLoading) {
         <ion-spinner name="bubbles"></ion-spinner>
       }
+      @if(error){
+        <div style="color: red;">
+          <p>{{error}}</p>
+        </div>
+      }
     </form>
     <p class="register-link">¿No tienes cuenta? <a routerLink="/register" class="register-text">Regístrate</a></p>
   </div>

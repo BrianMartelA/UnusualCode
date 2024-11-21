@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/fb/auth.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-profile',
@@ -9,7 +10,7 @@ import { AuthService } from 'src/app/fb/auth.service';
 })
 export class ProfilePage implements OnInit {
   user: any = {};
-  constructor(private authService: AuthService,private router: Router) { }
+  constructor(private authService: AuthService,private router: Router, private location: Location) { }
 
   ngOnInit() {
 
@@ -19,10 +20,7 @@ export class ProfilePage implements OnInit {
     });
   }
 
-  async logout() {
-    console.log('Cerrando sesión...');
-    this.authService.logout();  // Cerrar sesión
-    this.router.navigate(['/home']);
-    console.log('Sesion cerrada..')
+  goBack() {
+    this.location.back();
   }
 }

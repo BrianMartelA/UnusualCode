@@ -1,8 +1,22 @@
+.full-page-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.page-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
 .welcome-content {
   background-color: #000;
   color: #ffffff;
-  min-height: 100vh;
+  flex: 1;
   overflow: hidden;
+  justify-content: center;
+  align-items: center;
 }
 
 .welcome-container {
@@ -10,13 +24,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 80%;
   padding: 20px;
   text-align: center;
 }
 
 .welcome-title {
-  font-size: 2.5rem;
+  font-size: 2.0rem;
   color: #6C24FF;
   margin-bottom: 20px;
 }
@@ -24,15 +37,4 @@
 .welcome-text {
   color: #b3b3b3;
   font-size: 1.2rem;
-}
-
-.bottom-nav {
-  background-color: #333;
-  color: #ffffff;
-  --ion-color-primary: #6C24FF;
-}
-
-ion-icon {
-  font-size: 1.5rem;
-  color: #ffffff;
 }
