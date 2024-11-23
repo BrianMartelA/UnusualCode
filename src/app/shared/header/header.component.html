@@ -8,13 +8,12 @@
     <div class="menu-container">
       <button class="menu-button">
         <span class="material-icons">account_circle</span>
-        <span>Perfil</span>
+        <span>{{ user['fullname'] }}</span>
         <span class="material-icons">arrow_drop_down</span>
       </button>
       <!-- Menú desplegable -->
       <ul class="dropdown-menu">
         <li><a [routerLink]="['/profile']">Ver Perfil</a></li>
-        <li><a href="#">Ayuda</a></li>
         <li><a (click)="logout()">Cerrar Sesión</a></li>
       </ul>
     </div>
