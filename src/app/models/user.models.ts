@@ -1,6 +1,5 @@
 export interface Users{
-    fullname: string,
-    email: string,
-    typeUser: number,
-  }
-  
+  fullname: string,
+  email: string,
+  typeUser: number,
+}

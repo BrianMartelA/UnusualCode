@@ -38,3 +38,54 @@
   color: #b3b3b3;
   font-size: 1.2rem;
 }
+
+.client-content {
+  background-color: #000;
+  color: #ffffff;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.client-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 20px;
+  text-align: center;
+}
+
+.client-title {
+  font-size: 2.5rem;
+  color: #6C24FF;
+  margin-bottom: 30px;
+}
+
+.client-text {
+  font-size: 1.2rem;
+  color: #b3b3b3;
+  margin-bottom: 20px;
+}
+
+ion-list {
+  width: 100%;
+  max-width: 400px;
+  margin-top: 20px;
+}
+
+ion-item {
+  --background: #333;
+  --color: #ffffff;
+  margin-bottom: 15px;
+}
+
+ion-label {
+  color: #b3b3b3;
+}
+
+ion-item h2 {
+  color: #6C24FF;
+  font-size: 1.5rem;
+}
+

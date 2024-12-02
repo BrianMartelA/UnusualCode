@@ -7,7 +7,6 @@ import { ClientPage } from './client.page';
 import { RouterLink } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
 
-
 @NgModule({
   imports: [
     CommonModule,

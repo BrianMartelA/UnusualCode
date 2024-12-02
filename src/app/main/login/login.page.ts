@@ -23,7 +23,7 @@ export class LoginPage {
   }
 
   ngOnInit(): void {
-    console.log('La pagina de inicio de sesion se ha cargado correctamente');
+    console.log('');
   }
 
   async loginUser() {
@@ -39,12 +39,10 @@ export class LoginPage {
         this.router.navigate(['/programmer']);
       } else {
         this.isLoading = false;
-        console.error('Tipo de usuario desconocido:', typeUser);
       }
       this.isLoading= false;
     } catch (error) {
       this.isLoading = false;
-      console.error('Error al iniciar sesión:', error);
       this.error = this.authService.GenerarError(error);
     }
   }

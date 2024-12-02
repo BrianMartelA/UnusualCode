@@ -12,7 +12,6 @@ import {
   getFirestore
 } from '@angular/fire/firestore';
 
-
 @Injectable({
   providedIn: 'root',
 })
@@ -31,13 +30,4 @@ export class FirestoreService {
     const userDoc = await getDoc(userDocRef);
     return userDoc.exists() ? userDoc.data() : null;
   }
-
-
-
-
-
-
-
-
 }
-

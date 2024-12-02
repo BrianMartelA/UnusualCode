@@ -16,7 +16,6 @@ export class ProfilePage implements OnInit {
 
     this.authService.authState$.subscribe((userData) => {
       this.user = userData;
-      console.log('Datos completos del usuario:', this.user);
     });
   }
 

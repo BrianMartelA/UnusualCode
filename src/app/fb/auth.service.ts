@@ -81,6 +81,6 @@ export class AuthService {
 
   isLoggedIn() {
     return this.authStateSubject.asObservable().pipe(
-      map(user => !!user)  // Retorna true si user existe, false si es null
+      map(user => !!user)
     );}
 }
