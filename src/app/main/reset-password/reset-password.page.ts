@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { getAuth, sendPasswordResetEmail } from '@angular/fire/auth';
 import { Location } from '@angular/common';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-reset-password',
@@ -13,7 +14,8 @@ export class ResetPasswordPage implements OnInit {
 
   resetPasswordForm: FormGroup;
   email: any;
-
+  private alertController = inject(AlertController);
+  errorMessage: string ='';
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
@@ -23,8 +25,10 @@ export class ResetPasswordPage implements OnInit {
       email: ['', [Validators.required, Validators.email]],
     });
   }
+
+
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    console.log('Reset Password Page initialized');
   }
 
   sendResetLink() {
@@ -32,8 +36,11 @@ export class ResetPasswordPage implements OnInit {
     const auth = getAuth();
 
     sendPasswordResetEmail(auth, email)
-      .then(() => {
-        alert('Se ha enviado un enlace de restablecimiento a tu correo.');
+      .then(async () => {
+        this.errorMessage = 'Se ha enviado el link!';
+        const alert = await this.mostrarAlerta('',this.errorMessage);
+        await this.delay(3000);
+        await alert.dismiss();
         this.router.navigate(['/login']);
       })
       .catch((error) => {
@@ -44,4 +51,21 @@ export class ResetPasswordPage implements OnInit {
   goBack() {
     this.location.back();
   }
+
+  async mostrarAlerta(header: string, message: string) {
+    const alert = await this.alertController.create({
+      header: header,
+      message: message,
+      buttons: ['OK']
+    });
+
+    await alert.present();  // Muestra la alerta
+    return alert;  // Devuelve la instancia de la alerta
+  }
+
+  delay(ms: number) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
 }
+
+
